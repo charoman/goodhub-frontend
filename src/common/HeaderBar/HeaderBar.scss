@@ -1,0 +1,12 @@
+.header-bar {
+    flex-grow: 1;
+
+    .flex {
+        flex: 1;
+    }
+    
+    .menu-button {
+        margin-left: -12px;
+        margin-right: 20px;
+    }
+}

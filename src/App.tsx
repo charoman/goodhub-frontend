@@ -1,19 +1,24 @@
+import './App.scss';
 import * as React from 'react';
-import './App.css';
-
-import logo from './logo.svg';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import HeaderBar from "./common/HeaderBar/HeaderBar";
+import Dashboard from "./common/Dashboard/Dashboard";
+import { store, history } from "./redux/store";
+import { ConnectedRouter } from "react-router-redux";
+import { Provider } from "react-redux";
+import { Route } from "react-router";
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      <div>
+        <CssBaseline />
+        <HeaderBar />
+        <Provider store={store}>
+          <ConnectedRouter history={history}>
+            <Route exact path="/" component={Dashboard} />
+          </ConnectedRouter>
+        </Provider>
       </div>
     );
   }
